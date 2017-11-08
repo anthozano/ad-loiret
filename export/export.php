@@ -150,9 +150,13 @@ ADD FOREIGN KEY (id_photo) REFERENCES photo(id);
 
 if (($handle = fopen("../raw/ProjetBDDL3.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
-      var_dump($data);
+      
       fwrite($sql, "
+        INSERT INTO photo(ref_cindoc, serie, article, discriminant, notes_bdp, index_personnes, fichier_num, nb_cliche, support, chroma, remarques)
+        VALUES ($data[0]);
       ");
+
+      var_dump($data);
       exit();
     }
     fclose($handle);
