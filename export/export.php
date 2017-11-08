@@ -84,8 +84,8 @@ CREATE TABLE taille(
 fwrite($sql, "
 CREATE TABLE date(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    jour INT DEFAULT NULL
-    mois INT DEFAULT NULL
+    jour INT DEFAULT NULL,
+    mois INT DEFAULT NULL,
     annee INT DEFAULT NULL
 );");
 
@@ -115,7 +115,7 @@ fwrite($sql, "
 CREATE TABLE geo(
     id INT AUTO_INCREMENT PRIMARY KEY,
     ville VARCHAR(255) DEFAULT NULL,
-    coord VARCHAR(255) DEFAULT NULL,
+    coord VARCHAR(255) DEFAULT NULL
 );");
 
 /*
@@ -125,7 +125,7 @@ fwrite($sql, "
 CREATE TABLE coord(
     id INT AUTO_INCREMENT PRIMARY KEY,
     long FLOAT DEFAULT NULL,
-    lati FLOAT DEFAULT NULL,
+    lati FLOAT DEFAULT NULL
 );");
 
 
