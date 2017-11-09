@@ -54,3 +54,8 @@ Et enfin il faut configurer le serveur web pour que la racine du site web pointe
 * Framework Backend (PHP) : Laravel
 * Framework Frontend (HTML/CSS/JS) : Bootstrap
 
+## Choix des données
+
+* Date
+    * Nous avons choisi de stoker la date en utilisant une colonne a part entière pour le jour, le mois et l'année. En effet parfois on connait la date exacte (jour/mois/année) mais d'autre fois on n'a que l'année ou le mois et l'année. Ce qui nous a pousser a stocker la date de cette façon, qui est plutôt archaïque.
+    * De ce fait, nous auront des dates qui ressembleront à `date(NULL, NULL, 1961)` ou `date(19, 02, 1992)` ou bien encore `date(NULL, 02, 1989)`.
