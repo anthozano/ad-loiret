@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'DashboardController@home')->name('home');
+
+Route::resource('photos', 'PhotoController');

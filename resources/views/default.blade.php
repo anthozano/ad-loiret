@@ -32,7 +32,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                <li><a href="#">item</a></li>
+                <li><a href="{{ route('photos.index') }}">Photos</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

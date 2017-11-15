@@ -14,17 +14,17 @@ Familiés avec PHP orienté objet et le développement web, nous avons choisi un
 Récupérer le projet via l'archive dans le dépôt moodle ou cloner le projet avec git. Se placer dans le répertoire de l'application via ligne de commande et lancer la commande *composer* pour mettre à jour les dépendances.
 
 ```
-git clone git@gitlab.com:Graouuuu17/ProjetBDD.git
+$ git clone git@gitlab.com:Graouuuu17/ProjetBDD.git
 ```
 
 ``` 
-composer update
+$ composer update
 ```` 
 
 Créer un fichier de configuration pour Laravel :
 
 ```
-cp .env.example .env
+$ cp .env.example .env
 ```
 
 Et fournir les informations suivantes :
@@ -41,15 +41,37 @@ DB_PASSWORD=
 Configurer le framework Laravel
 
 ```
-php artisan key:generate
+$ php artisan key:generate
 ```
 
 Et enfin il faut configurer le serveur web pour que la racine du site web pointe sur le dossier `public/`. 
 
+## Créer la base de données
+
+Le fichier `export/export.php` est un script procédural qui génére un fichier sql qui permettera de créer la base de donnée. Pour générer ce fichier, placez vous dans le dossier `export/` et exécutez le script php `export.php`.
+
+``` shell
+$ cd export/
+$ php export.php # Peut être long à exécuter ...
+```
+
+Ensuite il suffit de lancer le script sql créer `raw/export.sql`. A cause de la taille de ce fichier il est recommandé de le lancer depuis un shell MySQL, 
+
+Pour ouvrir un shell sql avec wampserver : 
+```
+$ C:\wamp64\bin\mysql\mysql5.7.9\bin\mysql.exe -u root
+```
+
+Utiliser la commande `source` pour exécuter le fichier sql :
+
+``` mysql
+mysql> source path/to/file.sql
+```
+
 ## Outils utilisés
 
 * Versionning : GIT avec le projet héberger sur gitlab.com
-* Plateforme de développement (Apache/MySQL/PHP: WampServer)
+* Plateforme de développement (Apache/MySQL/PHP: WampServer/MAMP)
 * Composer : Gestionnaire de dépendances PHP
 * Framework Backend (PHP) : Laravel
 * Framework Frontend (HTML/CSS/JS) : Bootstrap

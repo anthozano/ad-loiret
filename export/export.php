@@ -70,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `description` (
 
 fwrite($sql, "
 -- -----------------------------------------------------
--- Table `photo`
+-- Table `photos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `photo` (
+CREATE TABLE IF NOT EXISTS `photos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `serie` VARCHAR(255) NULL,
   `article` VARCHAR(255) NULL,
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `sujets` (
   INDEX `fk_sujets_sujet1_idx` (`sujet_id` ASC),
   CONSTRAINT `fk_sujets_photo1`
     FOREIGN KEY (`photo_id`)
-    REFERENCES `photo` (`id`)
+    REFERENCES `photos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_sujets_sujet1`
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `iconographies` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_iconographies_photo1`
     FOREIGN KEY (`photo_id`)
-    REFERENCES `photo` (`id`)
+    REFERENCES `photos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 ");
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `cindoc` (
   INDEX `fk_cindoc_photo1_idx` (`photo_id` ASC),
   CONSTRAINT `fk_cindoc_photo1`
     FOREIGN KEY (`photo_id`)
-    REFERENCES `photo` (`id`)
+    REFERENCES `photos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 ");
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `tailles` (
   INDEX `fk_tailles_taille1_idx` (`taille_id` ASC),
   CONSTRAINT `fk_tailles_photo1`
     FOREIGN KEY (`photo_id`)
-    REFERENCES `photo` (`id`)
+    REFERENCES `photos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tailles_taille1`
@@ -248,7 +248,7 @@ VALUES ($i, \"$row[4]\", NULL);
         ");
 
         fwrite($sql, "
-INSERT INTO photo(id, serie, article, discriminant, notes, index_personnes, fichier_num, nb_cliche, support, chroma, remarques, id_description, id_date, id_geo)
+INSERT INTO photos(id, serie, article, discriminant, notes, index_personnes, fichier_num, nb_cliche, support, chroma, remarques, id_description, id_date, id_geo)
 VALUES ($i, \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[8]\", \"$row[9]\", \"$row[10]\", \"$row[12]\", \"$row[14]\", \"$row[15]\", \"$row[16]\",
   $i, $i, $i
 );
