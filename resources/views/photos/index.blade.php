@@ -8,7 +8,9 @@
         <tr>
             <th>Réf(s) cindoc</th>
             <th>Série</th>
-            <th>article</th>
+            <th>Article</th>
+            <th>Ville</th>
+            <th>Taille</th>
             <th colspan="3">Actions</th>
         </tr>
     @foreach($photos as $photo)
@@ -20,7 +22,7 @@
                 </td>
                 <td>{{ $photo->serie }}</td>
                 <td>{{ $photo->article}}</td>
-                <td>{{ $photo->geo }}</td>
+                <td>{{ $photo->geo->commune }}</td>
                 <td>{{ $photo->taille}}</td>
                 <td><a class="btn btn-default" href="{{ route('photos.show', $photo)}}">Voir</a></td>
                 <td><a class="btn btn-primary" href="{{ route('photos.edit', $photo)}}">Editer</a></td>

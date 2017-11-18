@@ -19,10 +19,11 @@ class Config {
   }
 
   public function __construct() {
-    $this->db_name = "jeanne";
-    $this->db_user = "root";
-    $this->db_pswd = "";
-    $this->db_host = "localhost";
+    $conf = require("conf.php");
+    $this->db_name = $conf["db_name"];
+    $this->db_user = $conf["db_user"];
+    $this->db_pswd = $conf["db_pswd"];
+    $this->db_host = $conf["db_host"];
   }
 
   public function getDb_user() { return $this->db_user; }

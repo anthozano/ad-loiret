@@ -22,12 +22,14 @@
         <dd>{{ $photo->chroma }}</dd>
         <dt>Remarques</dd>
         <dd>{{ $photo->remarques }}</dd>
-        <dt>Date</dd>
-        <dd>{{ $photo->date() }}</dd>
-        <dt>Id_geo</dd>
-        <dd>{{ $photo->id_geo }}</dd>
-        <dt>Id_description</dd>
-        <dd>{{ $photo->id_description }}</dd>
+        <dt>Date (jj/mm/aaaa)</dd>
+        <dd>{{ $photo->date->jour }}/{{ $photo->date->mois }}/{{ $photo->date->annee }}</dd>
+        <dt>Geo</dd>
+        <dd>{{ $photo->geo->commune }}</dd>
+        <dt>Description</dd>
+        <dd>{{ $photo->description->label }}</dd>
+        <dt>Taille(s)</dt>
+        <dd>{{ $photo->tailles }}</dd>
     </dl>
     <div id="map" style="height:420px"></div>
     <script>
