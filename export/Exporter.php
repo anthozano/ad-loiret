@@ -378,6 +378,16 @@ class Exporter
         $this->setLastIconographieIds($lastInserts);
     }
 
+    private function formatIcono($raw)
+    {
+        $format = [];
+        $iconos = preg_split("#[,/|]+#", $raw);
+        foreach ($iconos as $icono) {
+            array_push($format, ucfirst($icono));
+        }
+        return $iconos;
+    }
+
     private function fichier($raw)
     {
         $fichiers = $this->formatFichier($raw);
@@ -521,12 +531,6 @@ class Exporter
             $stmt->bindParam(':iconographie_id', $id);
             $stmt->execute();
         }
-    }
-
-    private function formatIcono($raw)
-    {
-        $iconos = preg_split("^[,/|]+^", $raw);
-        return $iconos;
     }
 
     private function sujet($raw)

@@ -10,11 +10,11 @@
         <dd>{{ $photo->discriminant }}</dd>
         <dt>Notes</dd>
         <dd>{{ $photo->notes }}</dd>
-        <dt>Index_personnes</dd>
+        <dt>Index personnes</dd>
         <dd>{{ $photo->index_personnes }}</dd>
-        <dt>Fichier_num</dd>
+        <dt>Fichier numérique</dd>
         <dd>{{ $photo->fichier_num }}</dd>
-        <dt>Nb_cliche</dd>
+        <dt>Nombre de cliché(s)</dd>
         <dd>{{ $photo->nb_cliche }}</dd>
         <dt>Support</dd>
         <dd>{{ $photo->support }}</dd>
@@ -22,14 +22,38 @@
         <dd>{{ $photo->chroma }}</dd>
         <dt>Remarques</dd>
         <dd>{{ $photo->remarques }}</dd>
-        <dt>Date (jj/mm/aaaa)</dd>
-        <dd>{{ $photo->date->jour }}/{{ $photo->date->mois }}/{{ $photo->date->annee }}</dd>
-        <dt>Geo</dd>
-        <dd>{{ $photo->geo->commune }}</dd>
-        <dt>Description</dd>
-        <dd>{{ $photo->description->label }}</dd>
+        @if($photo->date)
+            <dt>Date (jj/mm/aaaa)</dd>
+            <dd>
+                {{ $photo->date->jour }}/{{ $photo->date->mois }}/{{ $photo->date->annee }}
+            </dd>
+        @endif
+        @if($photo->geo)
+            <dt>Geo</dd>
+            <dd>{{ $photo->geo->commune }}</dd>
+        @endif
+        @if($photo->date)
+            <dt>Description</dd>
+            <dd>{{ $photo->description->label }}</dd>
+        @endif
         <dt>Taille(s)</dt>
-        <dd>{{ $photo->tailles }}</dd>
+        <dd>
+            @foreach($photo->tailles as $taille)
+                {{ $taille->largeur }} x {{ $taille->largeur }} cm
+            @endforeach
+        </dd>
+        <dt>Sujet(s)</dt>
+        <dd>
+            @foreach($photo->sujets as $sujet)
+                {{ $sujet->sujet }}
+            @endforeach
+        </dd>
+        <dt>Index iconographique)</dt>
+        <dd>
+            @foreach($photo->iconographies as $icono)
+                {{ $icono->label }}
+            @endforeach
+        </dd>
     </dl>
     <div id="map" style="height:420px"></div>
     <script>
